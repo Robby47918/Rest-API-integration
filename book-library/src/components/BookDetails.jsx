@@ -26,9 +26,10 @@ const BookDetails = ({ book, onClose }) => {
   if (!book) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div className="fixed inset-0 bg-white bg-opacity-50 flex items-center justify-center z-50">
+
       <div className="bg-gradient-to-r from-pink-100 via-purple-100 to-blue-100 
-                      rounded-lg shadow-xl p-4 sm:p-6 max-w-sm sm:max-w-md md:max-w-lg w-full relative">
+                      rounded-lg shadow-xl p-4 sm:p-6 max-w-sm sm:max-w-md md:max-w-lg w-full relative max-h-[80vh] overflow-y-auto">
         
         <button
           onClick={onClose}

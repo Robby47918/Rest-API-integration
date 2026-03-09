@@ -23,7 +23,7 @@ const SearchBar = ({ onSearch }) => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search for title, author, or keyword..."
-        className="w-full md:w-2/3 px-4 py-2 border border-gray-300 rounded-md 
+        className="flex-1 w-full md:w-2/3 px-4 py-2 px-4 border border-gray-300 rounded-md 
                    focus:outline-none focus:ring-2 focus:ring-pink-500 
                    text-gray-800"
       />
@@ -31,7 +31,7 @@ const SearchBar = ({ onSearch }) => {
      
       <button
         type="submit"
-        className="w-full md:w-auto px-6 py-2 bg-pink-600 text-black font-semibold 
+        className="w-50 md:w-auto px-6 py-2 bg-pink-600 text-black font-semibold 
                    rounded-md hover:bg-pink-700 transition"
       >
         Search
