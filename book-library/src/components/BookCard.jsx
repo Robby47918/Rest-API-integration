@@ -36,21 +36,21 @@ const BookCard = ({ book, onSelect, onAddFavorite, onAddReadingList }) => {
       <div className="flex flex-wrap gap-2 justify-center mt-2">
         <button
           onClick={() => onSelect(book)}
-          className="px-3 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+          className="px-3 py-1 bg-blue-500 text-blue rounded-md hover:bg-blue-600"
         >
           Details
         </button>
 
         <button
           onClick={() => onAddFavorite(book)}
-          className="px-3 py-1 bg-pink-500 text-white rounded-md hover:bg-pink-600"
+          className="px-3 py-1 bg-pink-500 text-blue rounded-md hover:bg-pink-600"
         >
         Favorite
         </button>
 
         <button
           onClick={() => onAddReadingList(book)}
-          className="px-3 py-1 bg-purple-500 text-white rounded-md hover:bg-purple-600"
+          className="px-3 py-1 bg-purple-500 text-blue rounded-md hover:bg-purple-600"
         >
           Reading List
         </button>
