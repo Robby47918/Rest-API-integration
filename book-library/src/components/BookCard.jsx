@@ -1,24 +1,36 @@
 const BookCard = ({ book, onSelect }) => {
-    const coverUrl = book.cover_i
-        ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
-        : 'https://via.placeholder.com/150x200?text=No+Cover';
+  const coverUrl = book.cover_i
+    ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`
+    : "https://via.placeholder.com/150x200?text=No+Cover";
+
+  return (
     <div
-        onClick={() => onSelect(book)}
-        className="bg-white shadow-md rounded p-4 hover:scale-105 transition cursor-pointer"
+      onClick={() => onSelect(book)}
+      className="bg-gradient-to-r from-pink-100 via-purple-100 to-blue-100 
+                 shadow-lg rounded-lg p-4 
+                 hover:scale-105 hover:shadow-xl transition 
+                 cursor-pointer flex flex-col items-center"
     >
-        <img 
+      
+      <img
         src={coverUrl}
         alt={book.title}
-        className="w-32 h-48 object-cover mb-2 mx-auto"
-        />
-        <h2 className="text-lg font-bold text-center">{book.title}</h2>
-        <p className="text-sm text-gray-600 text-center">
-            {book.author_name?.join(', ') || 'Unknown Author'}
-        </p>
-        <p className="text-sm text-gray-500 text-center">
-            {book.publisher?.[0] || 'Unknown Publisher'}
-        </p>
+        className="w-24 h-36 sm:w-28 sm:h-40 md:w-32 md:h-48 object-cover mb-3 rounded"
+      />
+
+      <h2 className="text-base sm:text-lg md:text-xl font-bold text-center text-blue-800">
+        {book.title}
+      </h2>
+
+      <p className="text-xs sm:text-sm md:text-base text-gray-700 text-center">
+        {book.author_name?.join(", ") || "Unknown Author"}
+      </p>
+
+      <p className="text-xs sm:text-sm md:text-base text-gray-500 text-center">
+        {book.publisher?.[0] || "Unknown Publisher"}
+      </p>
     </div>
+  );
 };
 
 export default BookCard;
