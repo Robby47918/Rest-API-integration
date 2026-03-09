@@ -50,7 +50,7 @@ function App() {
     <div className="min-h-screen min-w-screen mx-auto px-5 sm:px-10 md:px-20 bg-gradient-to-r from-yellow-50 via-pink-50 to-purple-50">
       
      
-      <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold text-center mb-6 py-4 text-blue-500">
+      <h1 className="text-4xl sm:text-6xl md:text-7xl italic font-extrabold text-center mb-6 py-20 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500">
         Book Library
       </h1>
 
@@ -67,7 +67,7 @@ function App() {
         <button
           onClick={() => setActiveTab("favorites")}
           className={`px-4 py-2 rounded-md font-semibold ${
-            activeTab === "favorites" ? "bg-pink-500 text-gray-600" : "bg-white text-blue-600"
+            activeTab === "favorites" ? "bg-blue-500 text-gray-600" : "bg-white text-blue-600"
           }`}
         >
           Favorites
@@ -75,7 +75,7 @@ function App() {
         <button
           onClick={() => setActiveTab("readingList")}
           className={`px-4 py-2 rounded-md font-semibold ${
-            activeTab === "readingList" ? "bg-purple-500 text-gray-600" : "bg-white text-blue-600"
+            activeTab === "readingList" ? "bg-blue-500 text-gray-600" : "bg-white text-blue-600"
           }`}
         >
           Reading List
