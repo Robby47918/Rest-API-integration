@@ -59,24 +59,25 @@ function App() {
         <button
           onClick={() => setActiveTab("library")}
           className={`px-4 py-2 rounded-md font-semibold ${
-            activeTab === "library" ? "bg-blue-500 text-gray-600" : "bg-white text-blue-600"
-          }`}
+            activeTab === "library" ? "bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-600 text-white shadow-lg shadow-indigo-300/50"
+        : "bg-white text-blue-600 hover:bg-blue-100"}`}
         >
           Library
         </button>
         <button
           onClick={() => setActiveTab("favorites")}
           className={`px-4 py-2 rounded-md font-semibold ${
-            activeTab === "favorites" ? "bg-blue-500 text-gray-600" : "bg-white text-blue-600"
-          }`}
+            activeTab === "favorites" ? "bg-gradient-to-r from-pink-400 via-red-500 to-purple-500 text-white shadow-lg shadow-pink-300/50"
+        : "bg-white text-pink-600 hover:bg-pink-100"}`}
+
         >
           Favorites
         </button>
         <button
           onClick={() => setActiveTab("readingList")}
           className={`px-4 py-2 rounded-md font-semibold ${
-            activeTab === "readingList" ? "bg-blue-500 text-gray-600" : "bg-white text-blue-600"
-          }`}
+            activeTab === "readingList" ? "bg-gradient-to-r from-purple-400 via-indigo-500 to-blue-500 text-white shadow-lg shadow-purple-300/50"
+        : "bg-white text-purple-600 hover:bg-purple-100"}`}
         >
           Reading List
         </button>
