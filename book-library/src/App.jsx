@@ -1,36 +1,59 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import SearchBar from './components/SeachBar'
+import BookDetails from './components/BookDetails'
+import BookCard from './components/BookCard'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [books, setBooks] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [selectedBook, setSelectedBook] = useState(null);
 
+  const fetchBooks = async (query) => {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch(`https://openlibrary.org/search.json?q=${query}`);
+      if (!res.ok) throw new Error("Failed to fetch books");
+
+      const data = await res.json();
+
+      if (data.docs.length === 0) {
+        setError("No books found. Try a different search.");
+        setBooks([]);
+      } else {
+        setBooks(data.docs);
+      }
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+ 
   return (
-    <>
-      <div>
-        
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="min-h-screen bg-gray-50">
+      <h1 className="text-4xl font-bold text-center py-8">Book Library</h1>
+
+      <SearchBar onSearch={fetchBooks} />
+
+      {loading && <p className="text-center text-blue-600">Loading...</p>}
+      {error && <p className="text-center text-red-500">{error}</p>}
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-4">
+        {books.map((book) => (
+          <BookCard 
+          key={book.key} 
+          book={book} 
+          onSelect={setSelectedBook} />
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <BookDetails 
+      book={selectedBook} 
+      onClose={() => 
+      setSelectedBook(null)} />
+    </div>
+  );
 }
 
-export default App
+export default App;
